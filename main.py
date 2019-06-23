@@ -30,4 +30,4 @@ print(cleaned_file_save_as)
 
 FileCleaner.remove_space_emptyline(input_file, cleaned_file_save_as)
 cutting.cut_to_file(cleaned_file_save_as, cutting_file_saveas)
-# filter.remove_stopword_file(cutting_file_saveas, stopword_fliter_saveas, stopword_file)
+filter.remove_stopword_file(cutting_file_saveas, stopword_fliter_saveas, stopword_file)

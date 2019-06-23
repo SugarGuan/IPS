@@ -107,3 +107,17 @@ def input_output_file_check(input_file_path, out_file_path):
             SystemMessage.error(2050310)
             return False
     return True
+
+
+def getsize_B(path):
+    if not input_file_check(path):
+        SystemMessage.error(2050401)
+    return os.path.getsize(path)
+
+
+def getsize_MB(path):
+    return int(getsize_B(path)/1024)
+
+
+def getsize_GB(path):
+    return getsize_B(path)/1048576

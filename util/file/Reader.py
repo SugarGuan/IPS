@@ -1,5 +1,6 @@
 from util.file import Checker as FileChecker
 from util.system import Message as SystemMessenger
+from util.system import Type
 
 
 def read(file_path):
@@ -11,6 +12,14 @@ def read(file_path):
         SystemMessenger.error(2000103)
     if not FileChecker.file_readable(file_path):
         SystemMessenger.error(2000104)
+    file_size = FileChecker.getsize_MB(file_path)
+    if not file_size > 128: # not > 128 MB
+        return read_small(file_path)
+    else:
+        return read_huge(file_path)
+
+
+def read_small(file_path):
     file_content = []
     try:
         file = open(file_path, 'r', encoding='utf-8-sig')
@@ -27,5 +36,5 @@ def read(file_path):
     return file_content
 
 
-def read_part(file_path, startline, stopline):
+def read_huge(file_path):
     pass
