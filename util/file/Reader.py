@@ -13,7 +13,7 @@ def read(file_path):
     if not FileChecker.file_readable(file_path):
         SystemMessenger.error(2000104)
     file_size = FileChecker.getsize_MB(file_path)
-    if not file_size > 128: # not > 128 MB
+    if not file_size > 512: # not > 512 MB
         return read_small(file_path)
     else:
         return read_huge(file_path)
